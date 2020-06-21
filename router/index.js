@@ -13,6 +13,9 @@ router.get('/api/searchMovie/:name', Handler.searchMovie)
 router.post('/api/updateMovie/:name', Handler.updateMovie)
 router.get('/api/searchid/', Handler.searchId)
 router.get('/api/searchyear/', Handler.searchYear)
+router.get('/api/searchrating/', Handler.searchRating)
+
+
 router.all('*', (req,res) =>{ 
     res.status(502).send('BAD_GATEWAY')
 })

@@ -74,7 +74,7 @@ class handler {
             response._id = data['Title']
             response.imdb = data['imdbID']
             response.releasedy = data['Released'].split(" ")[2]
-            response.rating = data['imdbRating']
+            response.rating = parseFloat(data['imdbRating'])
             response.genres = data['Genre']
             try {
                 await storeDB(DBName, CollName, response)
@@ -165,6 +165,34 @@ class handler {
         // testBugger.informLog(JSON.stringify(response))
         res.send(output)
     }
+    /**
+     * @async
+     * Represents a searchRating .
+     * @Function
+     * @param {json} req - Request comming.
+     * @param {json} res - Reponse.
+     * @description - This function responsible to search movie by rating
+    */
+   async searchRating(req, res){
+        const higherrating = req.query.higherrating;
+        const lowerrating = req.query.lowerrating
+        let query
+        
+        if(higherrating){
+            query = {rating:{$gte:parseFloat(higherrating)}}
+            
+        }else if(lowerrating){
+            query = {rating:{$lt:parseFloat(lowerrating)}}
+        }
+
+        let curser = await fetchDB(DBName, CollName, query)
+        let output = []
+        while(await curser.hasNext()){
+            output.push(await curser.next())
+        }
+        res.send(output)
+   }
+    
 }
 
 module.exports = handler
