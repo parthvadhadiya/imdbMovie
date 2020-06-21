@@ -192,6 +192,29 @@ class handler {
         }
         res.send(output)
    }
+   /**
+     * @async
+     * Represents a searchGenres .
+     * @Function
+     * @param {json} req - Request comming.
+     * @param {json} res - Reponse.
+     * @description - This function responsible to search movie by genres
+    */
+   async searchGenres(req, res){
+    let genresInput = req.body.genres;
+    genresInput.sort()
+    genresInput = genresInput.join(", ")
+    // console.log(genresInput)
+    
+    let query = {genres: {$regex: genresInput, $options: "$i"}}
+    // console.log(query)
+    let curser = await fetchDB(DBName, CollName, query)
+        let output = []
+        while(await curser.hasNext()){
+            output.push(await curser.next())
+        }
+        res.send(output)
+   } 
     
 }
 

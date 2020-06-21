@@ -14,6 +14,8 @@ router.post('/api/updateMovie/:name', Handler.updateMovie)
 router.get('/api/searchid/', Handler.searchId)
 router.get('/api/searchyear/', Handler.searchYear)
 router.get('/api/searchrating/', Handler.searchRating)
+router.post('/api/searchgenres/', Handler.searchGenres)
+
 
 
 router.all('*', (req,res) =>{ 
