@@ -16,7 +16,8 @@ async function fetchDB(MONGO_DB_NAME, COLLNAME, search) {
     }
     let output;
     try {
-        output = await collections.find(search);
+        // output = await collections.find({releasedy:{ $gte:"1990", $lt: "2019" }});
+        output = await collections.find(search)
     } catch (e) {
         testBugger.errorLog(e);
         testBugger.errorLog("Error in data fetching from " + COLLNAME)

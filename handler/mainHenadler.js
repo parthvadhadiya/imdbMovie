@@ -53,6 +53,7 @@ class handler {
     async searchMovie(req, res){
         let response = {}
         const name = req.params.name
+        
         let curser
         try {
             curser = await fetchDB(DBName, CollName, {"_id":name})
@@ -62,6 +63,7 @@ class handler {
         
 
         while(await curser.hasNext()){
+            // console.log(curser.next())
             Object.assign(response, await curser.next())
         }
         console.log(response)
@@ -149,19 +151,19 @@ class handler {
             testBugger.informLog("Search between date")
             const start = req.query.start
             const end = req.query.end
-            let query = {releasedy:{ $gte:"2015"}, releasedy: { $lte: "2019" }}
+            let query = {releasedy:{ $gte:start, $lt: end }}
             // console.log(query)
             curser = await fetchDB(DBName, CollName, query)
         }else{
             curser = await fetchDB(DBName, CollName, {"releasedy":year.toString()})
         }
         
-        let response = {}  
+        let output = []
         while(await curser.hasNext()){
-            Object.assign(response, await curser.next())
+            output.push(await curser.next())
         }
-        testBugger.informLog(JSON.stringify(response))
-        res.send(response)
+        // testBugger.informLog(JSON.stringify(response))
+        res.send(output)
     }
 }
 
