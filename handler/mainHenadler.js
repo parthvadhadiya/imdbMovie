@@ -66,7 +66,7 @@ class handler {
             // console.log(curser.next())
             Object.assign(response, await curser.next())
         }
-        console.log(response)
+        // console.log(response)
         if(Object.keys(response).length === 0){
             console.log("asdas")
             let data = await getMovie(name) 
@@ -100,8 +100,9 @@ class handler {
         while(await curser.hasNext()){
             Object.assign(response, await curser.next())
         }
+        console.log(response)
         if(Object.keys(response).length === 0){
-            response.error = "Movie is not available locally, run search query to search"
+            response.error = "Movie is not available locally to, run search api to search"
         }else{
             // console.log(name)
             let updateQ = {

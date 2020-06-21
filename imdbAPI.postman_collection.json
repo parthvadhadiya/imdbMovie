@@ -1,0 +1,273 @@
+{
+	"variables": [],
+	"info": {
+		"name": "imdbAPI",
+		"_postman_id": "065d9dd1-df42-2f1f-56a5-ab8322327a8d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "find movie by title",
+			"request": {
+				"url": "http://localhost:62062/api/searchMovie/Matrix",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "this endpoint will try to find movie by its name on local database, if did't found then go to idbm api for query and store on db"
+			},
+			"response": []
+		},
+		{
+			"name": "update movie's details by title",
+			"request": {
+				"url": "http://localhost:62062/api/updateMovie/Matrix",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rating\": 9,\n\t\"genres\": \"horror\"\n}"
+				},
+				"description": "this endpoint will update genres and rating by name of the movie"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by Id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:62062/api/searchid/?id=tt0106062",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62062",
+					"path": [
+						"api",
+						"searchid",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "tt0106062",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this endpoint will search by id"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by  between start and end year",
+			"request": {
+				"url": {
+					"raw": "http://localhost:62062/api/searchYear/?start=1980&end=1990",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62062",
+					"path": [
+						"api",
+						"searchYear",
+						""
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "1980",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "end",
+							"value": "1990",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this endpoint will search movies by between years"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by exect year",
+			"request": {
+				"url": {
+					"raw": "http://localhost:62062/api/searchYear/?year=1986",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62062",
+					"path": [
+						"api",
+						"searchYear",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "1986",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this endpoint will search movies by year\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by higher than rating",
+			"request": {
+				"url": {
+					"raw": "http://localhost:62062/api/searchrating/?higherrating=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62062",
+					"path": [
+						"api",
+						"searchrating",
+						""
+					],
+					"query": [
+						{
+							"key": "higherrating",
+							"value": "7",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this endpoint will search movies by rating higher than x"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by lower than rating",
+			"request": {
+				"url": {
+					"raw": "http://localhost:62062/api/searchrating/?lowerrating=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "62062",
+					"path": [
+						"api",
+						"searchrating",
+						""
+					],
+					"query": [
+						{
+							"key": "lowerrating",
+							"value": "7",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "this endpoint will search movies by rating lower than x"
+			},
+			"response": []
+		},
+		{
+			"name": "Search by genres",
+			"request": {
+				"url": "http://localhost:62062/api/searchgenres/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"genres\" : [\"comedy\", \"action\"]}"
+				},
+				"description": "this endpoint will search movies by genres"
+			},
+			"response": []
+		}
+	]
+}
