@@ -5,7 +5,7 @@
 https://documenter.getpostman.com/view/8580721/SzzoZEvV?version=latest
 
 # How to Run
-- add url path of DB in [config file](https://github.com/parthvadhadiya/imdbMovie)
+- add url path of DB in [config file](https://github.com/parthvadhadiya/imdbMovie/blob/master/config/project.config.js)
 
 ```
 npm install
