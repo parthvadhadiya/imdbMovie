@@ -9,7 +9,7 @@ https://documenter.getpostman.com/view/8580721/SzzoZEvV?version=latest
 
 ```
 npm install
-npm index.js
+node index.js
 
 ```
 
